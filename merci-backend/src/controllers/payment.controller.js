@@ -1,38 +1,8 @@
 import Razorpay from "razorpay";
 import crypto from "crypto";
-import User from "../models/User.js";
-import Product from "../models/Products.js";
 import createError from "../utils/error.js";
-import Order from "../models/Orders.js";
+import Order from "../models/order.model.js";
 
-// export const createOrder = async (req, res, next) => {
-//   //   console.log("req.body: ", req.body);
-
-//   const amount = req.body.totalAmount;
-
-//   if (!amount) {
-//     return next(createError(400, "Amount is required!"));
-//   }
-
-//   const razorpay = new Razorpay({
-//     key_id: process.env.RAZORPAY_KEY,
-//     key_secret: process.env.RAZORPAY_SECRET,
-//   });
-
-//   const options = {
-//     amount: Math.round(amount * 100),
-//     currency: "INR",
-//     receipt: "receipt#1",
-//     payment_capture: 1,
-//   };
-
-//   try {
-//     const order = await razorpay.orders.create(options);
-//     res.status(200).json({ order: order, status: "ok" });
-//   } catch (err) {
-//     next(createError(500, "Error in creating order!"));
-//   }
-// };
 
 export const createOrder = async (req, res, next) => {
   const { products, total_amount, address, payment_method } = req.body;

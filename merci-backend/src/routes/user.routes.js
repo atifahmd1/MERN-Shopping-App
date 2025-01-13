@@ -6,7 +6,7 @@ import {
   getAllOrders,
   placeOrder,
   updateUserDetails,
-} from "../controllers/User.js";
+} from "../controllers/user.controllers.js";
 import { verifyToken } from "../middlewares/verifyToken.js";
 
 import {

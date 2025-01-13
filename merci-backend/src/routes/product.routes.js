@@ -1,12 +1,12 @@
 import express from "express";
 import {
-  addProducts,
+  addProduct,
   updateProduct,
   getProducts,
   getProductById,
   getProductsByCategory,
   getFilteredProducts,
-} from "../controllers/Products.js";
+} from "../controllers/product.controllers.js";
 import {
   getBrandsName,
   getCategoriesName,
@@ -15,7 +15,7 @@ import {
 
 const router = express.Router();
 
-router.post("/add", addProducts);
+router.post("/add", addProduct);
 router.patch("/update/:id", updateProduct);
 router.get("/", getProducts);
 router.get("/category/:category", getProductsByCategory);

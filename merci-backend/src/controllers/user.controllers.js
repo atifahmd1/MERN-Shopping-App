@@ -1,9 +1,9 @@
-import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import dotenv from "dotenv";
 import createError from "../utils/error.js";
-import User from "../models/User.js";
-import Orders from "../models/Orders.js";
+import User from "../models/user.model.js";
+import Orders from "../models/order.model.js";
 
 dotenv.config();
 

@@ -1,3 +1,5 @@
+
+//models/brand.model.js
 import mongoose from "mongoose";
 
 const BrandSchema = new mongoose.Schema({
@@ -8,5 +10,5 @@ const BrandSchema = new mongoose.Schema({
   parent: { type: String },
 });
 
-const Brand = mongoose.model("Brand", BrandSchema);
+const Brand = mongoose.model("Brands", BrandSchema);
 export default Brand;

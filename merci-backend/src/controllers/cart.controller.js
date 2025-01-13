@@ -1,5 +1,5 @@
-import User from "../models/User.js";
-import Product from "../models/Products.js";
+import User from "../models/user.model.js";
+import Product from "../models/product.model.js";
 import createError from "../utils/error.js";
 
 // Get Cart Items
@@ -7,7 +7,7 @@ export const getCartItems = async (req, res, next) => {
   try {
     const user = await User.findById(req.user.id).populate({
       path: "cart.product",
-      model: "Products",
+      model: "Product",
     });
     if (!user) {
       return next(createError(404, "User not found!"));
@@ -51,7 +51,7 @@ export const addToCart = async (req, res, next) => {
 
     await user.populate({
       path: "cart.product",
-      model: "Products",
+      model: "Product",
     });
 
     // console.log("user.cart: ", user.cart);
@@ -89,7 +89,7 @@ export const updateItemQuantity = async (req, res, next) => {
 
     await user.populate({
       path: "cart.product",
-      model: "Products",
+      model: "Product",
     });
 
     return res.status(200).json(user.cart);
@@ -119,7 +119,7 @@ export const removeFromCart = async (req, res, next) => {
 
     await user.populate({
       path: "cart.product",
-      model: "Products",
+      model: "Product",
     });
 
     return res.status(200).json(user.cart);

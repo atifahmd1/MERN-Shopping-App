@@ -1,3 +1,4 @@
+//models/category.model.js
 import mongoose from "mongoose";
 
 const CategorySchema = new mongoose.Schema({
@@ -11,5 +12,5 @@ const CategorySchema = new mongoose.Schema({
   },
 });
 
-const Category = mongoose.model("Category", CategorySchema);
+const Category = mongoose.model("Categories", CategorySchema);
 export default Category;

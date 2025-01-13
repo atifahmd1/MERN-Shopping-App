@@ -1,5 +1,5 @@
-import User from "../models/User.js";
-import Products from "../models/Products.js";
+import User from "../models/user.model.js";
+import Product from "../models/product.model.js";
 import mongoose from "mongoose";
 
 export const getUser = async (req, res) => {
@@ -42,7 +42,7 @@ export const addFavorite = async (req, res) => {
     }
 
     // Optionally, check if the product exists
-    const productExists = await Products.findById(productId);
+    const productExists = await Product.findById(productId);
     if (!productExists) {
       return res.status(404).json({ message: "Product not found" });
     }
