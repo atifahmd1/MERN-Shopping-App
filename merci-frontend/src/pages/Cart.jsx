@@ -40,68 +40,6 @@ const Cart = () => {
     });
   };
 
-  // const handleCheckout = async () => {
-  //   try {
-  //     const response = await checkoutApi(token, subtotal);
-  //     if (!response.data) {
-  //       alert("Error in getting order details");
-  //       return;
-  //     }
-  //     console.log(response);
-
-  //     const order = response.data?.order;
-
-  //     const options = {
-  //       key: "rzp_test_N3Exm12wTgrctB",
-  //       name: "Merci",
-  //       description: "Test Transaction",
-  //       order_id: order?.id,
-  //       amount: order?.amount,
-  //       currency: order?.currency,
-  //       handler: function (res) {
-  //         console.log("Payment successful", res);
-  //         const { razorpay_payment_id, razorpay_order_id, razorpay_signature } =
-  //           res;
-  //         verifyPaymentApi(
-  //           razorpay_order_id,
-  //           razorpay_payment_id,
-  //           razorpay_signature
-  //         )
-  //           .then((res) => {
-  //             console.log("Verification response:", res.data);
-  //             alert("Payment verified successfully");
-
-  //           })
-  //           .catch((err) => {
-  //             console.error("Verification error:", err);
-  //           });
-  //       },
-  //       prefill: {
-  //         name: "John Doe",
-  //         email: "john.doe@example.com",
-  //         contact: "9999999999",
-  //       },
-  //       theme: {
-  //         color: "#3399cc",
-  //       },
-  //     };
-
-  //     if (window.Razorpay) {
-  //       const paymentObject = new window.Razorpay(options);
-
-  //       paymentObject.on("payment.failed", function (response) {
-  //         console.error("Payment failed", response.error);
-  //       });
-
-  //       paymentObject.open();
-  //     } else {
-  //       alert("Razorpay SDK is not loaded.");
-  //     }
-  //   } catch (error) {
-  //     alert("Error during checkout: " + error.message);
-  //   }
-  // };
-
   const handleCheckout = async () => {
     try {
       const orderData = {
