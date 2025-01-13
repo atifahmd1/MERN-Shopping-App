@@ -35,9 +35,11 @@ const Navbar = () => {
     "womens-shoes",
     "womens-watches",
   ];
+
+  console.log(authState.user);
   return (
     <div>
-      <nav className="navbar bg-body-tertiary fixed-top">
+      <nav className="navbar bg-body-tertiary sticky-top">
         <div className="container-fluid">
           <a className="navbar-brand" href="/">
             merci

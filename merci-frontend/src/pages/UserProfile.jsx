@@ -1,12 +1,15 @@
-import React, { useContext } from "react";
+import React, { useState, useContext } from "react";
 import { Link, useParams } from "react-router-dom";
 import { AuthContext } from "../contexts/AuthContext";
 
 const UserProfile = () => {
-  const { id } = useParams();
+  const [isSeller, setIsSeller] = useState(false);
+  const { userId } = useParams();
   const { authState } = useContext(AuthContext);
   const user = authState?.user;
-  if (id !== user?._id) {
+
+  console.log(userId, user?._id);
+  if (userId !== user?._id) {
     return (
       <p className="text-red-500 text-center text-xl font-bold my-16">
         Unauthorized
@@ -38,6 +41,46 @@ const UserProfile = () => {
           Edit Details
         </Link>
       </div>
+
+      <div className="flex">
+  {isSeller? (
+    <div>
+      <Link to={"dashboard"}>Go to Dashboard</Link>
+    </div>
+  ):(
+    <div>isSeller</div>
+  )}
+  <div>
+    {/* Toggle Switch */}
+    <div
+      className={`switch ${isSeller ? "active" : ""}`}
+      onClick={() => setIsSeller(!isSeller)}
+      style={{
+        width: "60px",
+        height: "30px",
+        backgroundColor: isSeller ? "#4caf50" : "#ccc",
+        borderRadius: "30px",
+        position: "relative",
+        cursor: "pointer",
+        transition: "background-color 0.3s ease",
+      }}
+    >
+      <div
+        style={{
+          width: "25px",
+          height: "25px",
+          backgroundColor: "#fff",
+          borderRadius: "50%",
+          position: "absolute",
+          top: "2.5px",
+          left: isSeller ? "32.5px" : "2.5px",
+          transition: "left 0.3s ease",
+        }}
+      ></div>
+    </div>
+  </div>
+</div>
+
 
       <div className="mb-6">
         <h3 className="text-xl font-semibold mb-2">Recent Orders</h3>

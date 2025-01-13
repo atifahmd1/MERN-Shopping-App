@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import Navbar from "./components/user/Navbar";
+import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useDispatch } from "react-redux";
@@ -23,6 +23,7 @@ import {
 } from "./redux/slices/filterParameterSlice";
 import Orders from "./pages/Orders";
 import OrderDetails from "./pages/OrderDetails";
+import DashboardLayout from "./components/seller/DashboardLayout";
 // import ProductPage from "./pages/ProductPage";
 // import AddProduct from "./pages/AddProduct";
 
@@ -60,6 +61,7 @@ const App = () => {
         <Route path="/orders/:orderId" element={<OrderDetails />} />
         <Route element={<PrivateRoute />}>
           <Route path="/user/:userId" element={<UserProfile />} />
+          <Route path="/user/:userId/dashboard" element={<DashboardLayout />} />
           <Route path="/user/:userId/update" element={<UserUpdate />} />
           <Route path="/favorites" element={<Favorites />} />
           <Route path="/cart" element={<Cart />} />
