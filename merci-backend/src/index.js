@@ -15,9 +15,11 @@ app.use(express.urlencoded({ extended: true }));
 import UserRoutes from "./routes/user.routes.js";
 import ProductRoutes from "./routes/product.routes.js";
 import OrderRoutes from "./routes/order.routes.js";
+import categoryRoutes from "./routes/category.routes.js";
 
 app.use("/api/user", UserRoutes);
 app.use("/api/products", ProductRoutes);
+app.use("/api/categories", categoryRoutes);
 app.use("/api/orders", OrderRoutes);
 
 //error handling

@@ -149,37 +149,37 @@ import EditProduct from './EditProduct';
 import DeleteProduct from './DeleteProduct';
 
 const ProductManagement = () => {
-  const [active, setActive] = useState('addProduct');
+  const [active, setActive] = useState('add-Product');
   const [selectedProductId, setSelectedProductId] = useState(null);
 
   const handleRefresh = () => {
-    setActive('addProduct');
+    setActive('add-Product');
   };
 
   return (
     <div className="p-6 bg-gray-50 min-h-screen">
       <div className="flex justify-between items-center mb-6">
-        <h3 className="text-2xl font-bold text-gray-700">Product Management</h3>
+        <h3 className="text-2xl font-bold text-gray-700 underline">{active.toUpperCase()}</h3>
         <div className="flex space-x-4">
-          {active !== 'addProduct' && (
+          {active !== 'add-Product' && (
             <button
-              onClick={() => setActive('addProduct')}
+              onClick={() => setActive('add-Product')}
               className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600"
             >
               Add Product
             </button>
           )}
-          {active !== 'editProduct' && (
+          {active !== 'edit-Product' && (
             <button
-              onClick={() => setActive('editProduct')}
+              onClick={() => setActive('edit-Product')}
               className="px-4 py-2 bg-yellow-500 text-white rounded-lg hover:bg-yellow-600"
             >
               Edit Product
             </button>
           )}
-          {active !== 'deleteProduct' && (
+          {active !== 'delete-Product' && (
             <button
-              onClick={() => setActive('deleteProduct')}
+              onClick={() => setActive('delete-Product')}
               className="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600"
             >
               Delete Product
@@ -187,14 +187,14 @@ const ProductManagement = () => {
           )}
         </div>
       </div>
-      {active === 'addProduct' && <AddProduct onProductAdded={handleRefresh} />}
-      {active === 'editProduct' && (
+      {active === 'add-Product' && <AddProduct onProductAdded={handleRefresh} />}
+      {active === 'edit-Product' && (
         <EditProduct productId={selectedProductId} onProductUpdated={handleRefresh} />
       )}
-      {active === 'deleteProduct' && (
+      {active === 'delete-Product' && (
         <DeleteProduct productId={selectedProductId} onProductDeleted={handleRefresh} />
       )}
-      {active === 'viewProducts' && (
+      {active === 'view-Products' && (
         <div>
           <button onClick={() => setActive('addProduct')}>Add Product</button>
           {/* Add Product Listing and edit/delete buttons here */}

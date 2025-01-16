@@ -6,5 +6,5 @@ const SizeSchema = new mongoose.Schema({
   description: { type: String },
 });
 
-const Size = mongoose.model("Sizes", SizeSchema);
+const Size = mongoose.model("Size", SizeSchema);
 export default Size;

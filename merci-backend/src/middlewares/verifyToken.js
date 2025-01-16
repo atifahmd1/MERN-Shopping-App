@@ -1,10 +1,11 @@
+//middlewares/verifyToken.js
 import jwt from "jsonwebtoken";
 import createError from "../utils/error.js";
 
 export const verifyToken = async (req, res, next) => {
   try {
     // console.log("req.headers: ", req.headers);
-    // console.log("req.headers.authorization: ", req.headers.authorization);
+    console.log("req.headers.authorization: ", req.headers.authorization);
     if (!req.headers.authorization) {
       return next(createError(401, "You are not authenticated!"));
     }

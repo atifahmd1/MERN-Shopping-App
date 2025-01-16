@@ -53,7 +53,7 @@ export const UserLogin = async (req, res, next) => {
       return next(createError(403, "Incorrect password"));
     }
     const token = jwt.sign({ id: existingUser._id }, process.env.JWT, {
-      expiresIn: "1 hour",
+      expiresIn: "1 day",
     });
     return res.status(200).json({ token, user: existingUser });
   } catch (error) {
